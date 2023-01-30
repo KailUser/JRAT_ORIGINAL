@@ -40,13 +40,3 @@ Here : https://discord.com/developers/applications
 Discord: ☄ S͇͇y͇͇i͇͇r͇͇e͇͇z͇͇z͇͇ ☄#8431
 
 
-## Usage/Examples
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
-
