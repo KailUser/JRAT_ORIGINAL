@@ -30,9 +30,9 @@ Write token in main.py
 
 Here : https://discord.com/developers/applications
 
-#### How hide console
+#### How hide console?
 
-1. Use auto py to exe
+1. Use [auto py to exe] (https://github.com/brentvollebregt/auto-py-to-exe)
 2. Select script and select Windows Based (hide console)
 
 
