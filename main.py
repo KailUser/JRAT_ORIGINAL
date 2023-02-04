@@ -10,7 +10,7 @@ import subprocess
 import shutil
 intents = discord.Intents.all()
 client = commands.Bot(command_prefix='.', intents=intents)
-id = 998279211276042414
+id = #Channel ID
 # Nothing personal. It's just my job
 @client.event
 async def on_ready():
