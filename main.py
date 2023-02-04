@@ -138,4 +138,4 @@ async def video(ctx, count):
 #U29ycnkgSSdtIGp1c3QgZG9pbmcgbXkgam9i
 
 
-client.run('MTA2OTI0NDAwNTgwOTkxMzg3OA.GLnsr-.YLrJeLAJgO-YHybvtWvrMUbQZb9caowDicvCj8')
+client.run('')
